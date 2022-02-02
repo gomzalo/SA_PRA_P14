@@ -12,6 +12,7 @@ content-type: application/json
     "password" : "aymimadre",
     "rol" : 1
 }
+
 ###
 DELETE http://localhost:3003/logout HTTP/1.1
 content-type: application/json
@@ -22,7 +23,6 @@ content-type: application/json
 ###
 POST http://localhost:3003/token HTTP/1.1
 content-type: application/json
-
 {
     "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVwb2t1biIsImlhdCI6MTY0Mzc3NDYwMX0.a7uqRCaQDxusD60ERypYkXjDhdcITvAU1WKye0kPPF4"
 }
