@@ -1,7 +1,7 @@
 {
   "name": "p1sag14",
   "version": "1.0.0",
-  "description": "Practica 1, Software Avanzado, grupo 14",
+  "description": "Practica 1 - Software Avanzado - Grupo 14",
   "main": "mid.js",
   "scripts": {
     "login": "nodemon login.js",
