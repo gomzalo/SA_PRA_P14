@@ -1,4 +1,4 @@
-# SA_Practicas_G14
+# SA_Practicas_P14
 
 - Universidad de San Carlos de Guatemala
 - Facultad de Ingenieria
@@ -7,7 +7,7 @@
 - Ing. Marco Aldana
 - Aux. Mario Morales
 
-## **Prácticas Grupo 14**
+## **Prácticas Pareja No. 14**
 
 | No. | Nombre                         | Carnet    |
 | --- | ------------------------------ | --------- |
