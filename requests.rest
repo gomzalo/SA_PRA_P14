@@ -1,0 +1,28 @@
+### SERVER LOGIN ###
+
+###
+GET http://localhost:4004/getusers HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVwb2t1biIsImlhdCI6MTY0Mzc3NDY0MSwiZXhwIjoxNjQzNzc0NjU2fQ.RayCX2yGc8PFMtzZMb7Y_mrYa28bE0L161DgqKzBwPo
+
+###
+POST http://localhost:3003/login HTTP/1.1
+content-type: application/json
+
+{
+    "username" : "Tepokun"
+}
+###
+DELETE http://localhost:3003/logout HTTP/1.1
+content-type: application/json
+
+{
+    "token" : ""
+}
+
+###
+POST http://localhost:3003/token HTTP/1.1
+content-type: application/json
+
+{
+    "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVwb2t1biIsImlhdCI6MTY0Mzc3NDYwMX0.a7uqRCaQDxusD60ERypYkXjDhdcITvAU1WKye0kPPF4"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "p1sag14",
+  "version": "1.0.0",
+  "description": "Practica 1, Software Avanzado, grupo 14",
+  "main": "mid.js",
+  "scripts": {
+    "login": "nodemon Login/server.js",
+    "mid": "nodemon mid.js",
+    "server": "npm-run-all --parallel login mid",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^15.0.0",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
