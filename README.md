@@ -1,4 +1,4 @@
-# SA_Practicas_P14
+# SA_PRA_P14
 
 - Universidad de San Carlos de Guatemala
 - Facultad de Ingenieria
