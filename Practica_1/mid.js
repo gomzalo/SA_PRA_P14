@@ -27,7 +27,13 @@ app.delete('/logout', (req, res) => {
 app.post('/login', (req, res) => {
     // Autenticacion
     const username = req.body.username;
-    const user = { name: username };
+    const password = req.body.password;
+    const rol = req.body.rol;
+    const user = { 
+        name: username,
+        pass: password,
+        rol: rol
+    };
     const acccessToken = generateAccessToken(user);
     const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
     refreshTokens.push(refreshToken);
@@ -35,7 +41,7 @@ app.post('/login', (req, res) => {
 });
 
 function generateAccessToken(user){
-    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '90s' });
+    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
 }
 
 console.log('Mid runnin on 3003');

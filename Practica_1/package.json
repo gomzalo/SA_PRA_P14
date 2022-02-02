@@ -4,7 +4,7 @@
   "description": "Practica 1, Software Avanzado, grupo 14",
   "main": "mid.js",
   "scripts": {
-    "login": "nodemon Login/server.js",
+    "login": "nodemon login.js",
     "mid": "nodemon mid.js",
     "server": "npm-run-all --parallel login mid",
     "test": "echo \"Error: no test specified\" && exit 1"
