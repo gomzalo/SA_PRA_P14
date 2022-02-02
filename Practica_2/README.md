@@ -44,7 +44,7 @@ docker run --name image-name -p 80:8080 -d dockerhub_user/image-name
 En nuestro caso es el siguiente comando:
 
 ```
-docker run --name sa-p2-g14 -p 80:8080 -d gomzalo/pareja14
+docker run --name pareja14 -p 80:8080 -d gomzalo/pareja14
 ```
 
 Para verificar que el contenedor fue creado y que esta corriendo, se corre el siguiente comando:
