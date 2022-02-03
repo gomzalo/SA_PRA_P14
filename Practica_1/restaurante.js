@@ -25,7 +25,9 @@ app.get('/send_to_delivery', authenticateToken, (req, res) => {
         // console.log("RES: ", req.headers['authorization']);
         if(orders.length > 0)
         {
-            const order = orders.shift();
+            const order = orders.filter(post => post.status === 0)[0];
+            order.status = 1;
+            console.log(order);
             request.post(
                 {
                 "headers" : { 
@@ -55,10 +57,10 @@ app.get('/send_to_delivery', authenticateToken, (req, res) => {
     }
 });
 
+let id_order = 0;
 app.post('/add_order', authenticateToken, (req, res) => {
     // console.log("RESTAURANTE: ", req);
     const user_actual = req.body.username;
-    let id_order = 0;
     const order = {
         id: id_order,
         user: user_actual,
