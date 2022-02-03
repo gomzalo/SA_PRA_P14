@@ -65,4 +65,4 @@ function authenticateToken(req, res, next){
 
 console.log('Login server running on 4004');
 
-app.listen(4005);
+app.listen(6006);
