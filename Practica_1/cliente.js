@@ -13,14 +13,12 @@ app.use(express.json())
     Repartidor: 3
 */
 
-const pedidos = [];
-
 app.get('/new_order', authenticateToken, (req, res) => {
     const user_actual = req.user;
     const rol_usuario = user_actual.rol;
-    console.log("CLIENTE: ", user_actual);
+    // console.log("CLIENTE: ", user_actual);
     if(rol_usuario == 1){
-        console.log("CLIENTE: ", req.headers['authorization']);
+        // console.log("CLIENTE: ", req.headers['authorization']);
         request.post(
             {
             "headers" : { 
@@ -33,14 +31,11 @@ app.get('/new_order', authenticateToken, (req, res) => {
             })
             }, (err, response, body) => {
                 if(err) {
-                    // return response.sendStatus(401);
                     console.log(err);
+                    return response.sendStatus(401);
                 }else{
-                    console.log(response.body);
-                    // res.json(res.body);
-                    // console.dir("CLIENTE");
+                    res.json(JSON.parse(body));
                 }
-                // console.dir("CLIENTE: ", JSON.parse(body));
             })
     }else{
         res.json({ message: "Solamente los clientes pueden solicitar nuevos pedidos." });

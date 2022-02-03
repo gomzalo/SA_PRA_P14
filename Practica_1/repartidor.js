@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const request = require('request');
 const app = express();
 const jwt = require('jsonwebtoken');
 
@@ -8,13 +9,18 @@ app.use(express.json())
 
 const orders = [];
 
-app.get('/get_pedido_res', authenticateToken, (req, res) => {
-    const user_actual = req.user;
-    const rol_usuario = user_actual.rol;
-    if(rol_usuario == 2){
+/*
+    Estados pedidos:
+    0: Recibido por restaurante
+    1: Recibido por repartidor
+    2: Entregado
+*/
 
-    }
-    res.json(users.filter(post => post.username === req.user.name && post.password === req.user.pass));
+app.post('/add_order_delivery', authenticateToken, (req, res) => {
+    // console.log("RESTAURANTE: ", req);
+    const order = req.body.order;
+    orders.push(order);
+    res.json({ message: "El repartidor recibio el pedido." });
 });
 
 function authenticateToken(req, res, next){
