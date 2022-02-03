@@ -6,50 +6,30 @@ const jwt = require('jsonwebtoken');
 
 app.use(express.json())
 
-const orders = [
-    {
-        no: 1,
-        username: 'Ebenja',
-        status: 'cocinando',
-        order:
-        [
-            {
-                order: 'jugo cereza'
-            },
-            {
-                order: 'Ramen'
-            }
-        ]
-    },
-    {
-        no: 2,
-        username: 'Ebenja',
-        status: 'cocinando',
-        order:
-        [
-            {
-                order: 'Coca Cola'
-            },
-            {
-                order: 'soup'
-            }
-        ]
-    },
-    {
-        no: 3,
-        username: 'Ebenja',
-        status: 'cocinando',
-        order:
-        [
-            {
-                order: 'SevenUp'
-            },
-            {
-                order: 'soup'
-            }
-        ]
-    },
-];
+const orders = [];
+
+/*
+    Estados pedidos:
+    0: Agregado
+    1: Recibido por restaurante
+    2: Enviado a repartidor
+    3: Recibido por repartidor
+    4: Entregado
+*/
+
+app.post('/add_order', authenticateToken, (req, res) => {
+    // console.log("RESTAURANTE: ", req);
+    const user_actual = req.body.username;
+    let id_order = 0;
+    const order = {
+        id: id_order,
+        user: user_actual,
+        status: 0
+    }
+    id_order++;
+    orders.push(order);
+    res.json({ message: "Se agrego la orden correctamente." });
+});
 
 function authenticateToken(req, res, next){
     const authHeader = req.headers['authorization'];
@@ -63,6 +43,10 @@ function authenticateToken(req, res, next){
     });
 }
 
-console.log('Login server running on 4004');
+app.get('/', (req, res) => {
+    res.json({ message: "Restaurante server running on 6006." });
+});
+
+console.log('Restaurante server running on http://0.0.0.0:6006');
 
 app.listen(6006);

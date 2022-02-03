@@ -24,26 +24,10 @@ app.delete('/logout', (req, res) => {
     res.sendStatus(204);
 })
 
-app.post('/login', (req, res) => {
-    // Autenticacion
-    const username = req.body.username;
-    const password = req.body.password;
-    const rol = req.body.rol;
-    const user = { 
-        name: username,
-        pass: password,
-        rol: rol
-    };
-    const acccessToken = generateAccessToken(user);
-    const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
-    refreshTokens.push(refreshToken);
-    res.json({ acccessToken: acccessToken, refreshToken: refreshToken });
+app.get('/', (req, res) => {
+    res.json({ message: "Mid server running on 3003." });
 });
 
-function generateAccessToken(user){
-    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-}
-
-console.log('Mid runnin on 3003');
+console.log('Mid running on http://0.0.0.0:3003');
 
 app.listen(3003);

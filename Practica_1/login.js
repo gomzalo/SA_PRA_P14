@@ -34,6 +34,33 @@ app.get('/getuser', authenticateToken, (req, res) => {
     res.json(users.filter(post => post.username === req.user.name && post.password === req.user.pass));
 });
 
+app.post('/login', (req, res) => {
+    // Autenticacion
+    const username = req.body.username;
+    const password = req.body.password;
+    
+    const user_temp = users.filter(post => post.username === username)[0];
+    // console.log(user_temp);
+    if(user_temp != null)
+    {
+        if(user_temp.password != password) res.json({ message: "Contraseña invalida" });
+        const user = { 
+            name: username,
+            pass: password,
+            rol: user_temp.rol
+        };
+        const acccessToken = generateAccessToken(user);
+        console.log("LOGIN: ", user.rol);
+        res.json({ acccessToken: acccessToken });
+    }else{
+        res.json({ message: "Usuario no encontrado" });
+    }
+});
+
+function generateAccessToken(user){
+    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+}
+
 function authenticateToken(req, res, next){
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
@@ -46,6 +73,11 @@ function authenticateToken(req, res, next){
     });
 }
 
-console.log('Login server running on 4004');
+
+app.get('/', (req, res) => {
+    res.json({ message: "Login server running on 4004." });
+});
+
+console.log('Login server running on http://0.0.0.0:4004');
 
 app.listen(4004);

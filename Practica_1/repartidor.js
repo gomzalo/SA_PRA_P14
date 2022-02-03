@@ -6,50 +6,16 @@ const jwt = require('jsonwebtoken');
 
 app.use(express.json())
 
-const orders = [
-    {
-        no: 1,
-        username: 'Ebenja',
-        status: 'cocinando',
-        order:
-        [
-            {
-                order: 'jugo cereza'
-            },
-            {
-                order: 'Ramen'
-            }
-        ]
-    },
-    {
-        no: 2,
-        username: 'Ebenja',
-        status: 'cocinando',
-        order:
-        [
-            {
-                order: 'Coca Cola'
-            },
-            {
-                order: 'soup'
-            }
-        ]
-    },
-    {
-        no: 3,
-        username: 'Ebenja',
-        status: 'cocinando',
-        order:
-        [
-            {
-                order: 'SevenUp'
-            },
-            {
-                order: 'soup'
-            }
-        ]
-    },
-];
+const orders = [];
+
+app.get('/get_pedido_res', authenticateToken, (req, res) => {
+    const user_actual = req.user;
+    const rol_usuario = user_actual.rol;
+    if(rol_usuario == 2){
+
+    }
+    res.json(users.filter(post => post.username === req.user.name && post.password === req.user.pass));
+});
 
 function authenticateToken(req, res, next){
     const authHeader = req.headers['authorization'];
@@ -63,6 +29,10 @@ function authenticateToken(req, res, next){
     });
 }
 
-console.log('Login server running on 4004');
+app.get('/', (req, res) => {
+    res.json({ message: "Repartidor server running on 7007." });
+});
+
+console.log('Repartidor server running on http://0.0.0.0:7007');
 
 app.listen(7007);

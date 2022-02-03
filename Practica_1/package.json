@@ -6,7 +6,10 @@
   "scripts": {
     "login": "nodemon login.js",
     "mid": "nodemon mid.js",
-    "server": "npm-run-all --parallel login mid",
+    "cliente": "nodemon cliente.js",
+    "repartidor": "nodemon repartidor.js",
+    "restaurante": "nodemon restaurante.js",
+    "server": "npm-run-all --parallel login mid cliente repartidor restaurante",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,7 +19,8 @@
     "dotenv": "^15.0.0",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
