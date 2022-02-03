@@ -69,6 +69,47 @@ app.post('/add_order', authenticateToken, (req, res) => {
     res.json({ message: "El restaurante recibio el pedido." });
 });
 
+app.post('/send_status_to_client', authenticateToken, (req, res) => {
+    // console.log("RESTAURANTE: ", req);
+    console.log("status")
+    console.log(req.body)
+    const user_actual = req.body.username;
+    const id_order = req.body.id_order;
+    console.log(orders)
+    let order_actual;
+    // order_actual = orders.forEach((order)=>{
+    //     if (order.user === user_actual && order.id === id_order ){
+    //         console.log(order)
+    //         return order;
+    //     }
+    // });
+    order_actual = orders.filter(post => post.user === user_actual && post.id === id_order)[0];
+    console.log(order_actual)
+    let estado =""
+    if (order_actual !== "undefined")
+    {
+        switch(order_actual.status)
+        {
+            case 0:
+                estado = "Recibido por restaurante"
+                break;
+            case 1:
+                estado = "Recibido por repartidor"
+                break;
+            case 2:
+                estado = "Entregado"
+                break;
+            default:
+                estado = ""
+                break;
+        }
+    }else{
+        res.json({ message: "Orden No encontrada" });
+    }
+    
+    res.json({ message: estado });
+});
+
 function authenticateToken(req, res, next){
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];

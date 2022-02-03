@@ -32,6 +32,38 @@ app.get('/new_order', authenticateToken, (req, res) => {
             }, (err, response, body) => {
                 if(err) {
                     console.log(err);
+                    // return response.sendStatus(401);
+                }else{
+                    res.json(JSON.parse(body));
+                }
+            })
+    }else{
+        res.json({ message: "Solamente los clientes pueden solicitar nuevos pedidos." });
+    }
+});
+
+app.post('/get_status_to_restaurant', authenticateToken, (req, res) => {
+    console.log(req.body)
+    const user_actual = req.user;
+    const rol_usuario = user_actual.rol;
+    const id_order = req.body.id_order;
+    // console.log("CLIENTE: ", user_actual);
+    if(rol_usuario == 1){
+        // console.log("CLIENTE: ", req.headers['authorization']);
+        request.post(
+            {
+            "headers" : { 
+                "content-type": "application/json",
+                "Authorization": req.headers['authorization']
+            },
+            "url" : "http://0.0.0.0:6006/send_status_to_client",
+            "body": JSON.stringify({
+                "username": user_actual.name,
+                "id_order": id_order
+            })
+            }, (err, response, body) => {
+                if(err) {
+                    console.log(err);
                     return response.sendStatus(401);
                 }else{
                     res.json(JSON.parse(body));
