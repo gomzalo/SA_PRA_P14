@@ -68,7 +68,7 @@ app.post('/add_order', authenticateToken, (req, res) => {
     }
     id_order++;
     orders.push(order);
-    res.json({ message: "El restaurante recibio el pedido." });
+    res.json({ message: `El restaurante recibio el pedido. No Order: ${order.id}` });
 });
 
 app.post('/send_status_to_client', authenticateToken, (req, res) => {
@@ -88,7 +88,7 @@ app.post('/send_status_to_client', authenticateToken, (req, res) => {
     order_actual = orders.filter(post => post.user === user_actual && post.id === id_order)[0];
     console.log(order_actual)
     let estado =""
-    if (order_actual !== "undefined")
+    if (typeof order_actual !== 'undefined')
     {
         switch(order_actual.status)
         {
@@ -105,6 +105,7 @@ app.post('/send_status_to_client', authenticateToken, (req, res) => {
                 estado = ""
                 break;
         }
+        estado = `No Orden: ${order_actual.id} ` + estado
     }else{
         res.json({ message: "Orden No encontrada" });
     }
