@@ -68,7 +68,7 @@ app.post('/add_order', authenticateToken, (req, res) => {
     }
     id_order++;
     orders.push(order);
-    res.json({ message: `El restaurante recibio el pedido. No Order: ${order.id}` });
+    res.json({ message: `El restaurante recibio el pedido. No Orden: ${order.id}` });
 });
 
 app.post('/send_status_to_client', authenticateToken, (req, res) => {
