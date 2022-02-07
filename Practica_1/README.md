@@ -4,18 +4,25 @@ JWT permite manejar tokens para autenticar sesiones de usuarios.
 
 **Usuarios de prueba**
 
-// CLIENTE
+## CLIENTE
+
+```json
 {
     "username" : "Ebenja",
     "password" : "hola123"
 }
-// RESTAURANTE
+```
+## RESTAURANTE
+```json
 {
      "username" : "Tepokun",
      "password" : "aymimadre"
 }
-// REPARTIDOR
+```
+## REPARTIDOR
+```json
 {
      "username" : "Rod",
      "password" : "clavecinha"
 }
+```
