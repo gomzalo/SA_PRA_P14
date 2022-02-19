@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Practica 3 - Software Avanzado - Grupo 14",
   "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
   "keywords": [
     "nodejs",
     "bootstrap",
