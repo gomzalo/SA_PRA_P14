@@ -4,7 +4,8 @@ pipeline {
     stage('build') {
       steps {
         echo 'Build starting'
-        sh 'cd Practica_3'
+        sh '''#!/bin/bash
+cd ./Practica_3'''
         sh 'npm install'
       }
     }
