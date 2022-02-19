@@ -38,13 +38,13 @@ Este comando, nos deberia mostrar nuestra imagen ya construida, lista para su co
 Luego de tener la imagen lista, procedemos a contenerizar la imagen con el siguiente comando.
 
 ```
-docker run --name image-name -p 80:8080 -d dockerhub_user/image-name
+docker run --name image-name -p <local_TCP_port>:<container_port> -d dockerhub_user/image-name
 ```
 
 En nuestro caso es el siguiente comando:
 
 ```
-docker run --name pareja14 -p 80:8080 -d gomzalo/pareja14
+docker run --name pareja14 -p 50:5050 -d gomzalo/pareja14
 ```
 
 Para verificar que el contenedor fue creado y que esta corriendo, se corre el siguiente comando:
