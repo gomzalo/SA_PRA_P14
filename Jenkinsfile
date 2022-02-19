@@ -5,8 +5,8 @@ pipeline {
       steps {
         echo 'Build starting'
         sh '''#!/bin/bash
-cd Practica_3'''
-        sh 'npm install'
+cd Practica_3
+npm install'''
       }
     }
 
