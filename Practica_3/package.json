@@ -1,7 +1,7 @@
 {
-  "name": "p3sag14",
+  "name": "p2sag14",
   "version": "1.0.0",
-  "description": "Practica 3 - Software Avanzado - Grupo 14",
+  "description": "Practica 2 - Software Avanzado - Grupo 14",
   "main": "app.js",
   "keywords": [
     "nodejs",
