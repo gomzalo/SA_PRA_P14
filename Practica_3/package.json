@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Practica 2 - Software Avanzado - Grupo 14",
   "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
   "keywords": [
     "nodejs",
     "bootstrap",
@@ -10,5 +13,8 @@
   ],
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }
