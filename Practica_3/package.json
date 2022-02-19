@@ -1,0 +1,14 @@
+{
+  "name": "p3sag14",
+  "version": "1.0.0",
+  "description": "Practica 3 - Software Avanzado - Grupo 14",
+  "main": "app.js",
+  "keywords": [
+    "nodejs",
+    "bootstrap",
+    "express"
+  ],
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
