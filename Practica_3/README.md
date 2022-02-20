@@ -1,6 +1,10 @@
-# **Práctica 2 - Docker**
+# **Práctica 3 - Integracion con Jenkins**
 
-Docker es un sistema para contenerizar y agilizar el despliegue de distintos servicios.
+Se utilizo Jenkins para realizar la integracion continua, el cual es un servidor de automatización open source escrito en Java. Está basado en el proyecto Hudson y es, dependiendo de la visión, un fork del proyecto o simplemente un cambio de nombre.
+
+Jenkins ayuda en la automatización de parte del proceso de desarrollo de software mediante integración continua y facilita ciertos aspectos de la entrega continua.
+
+Tambien se utilizo Docker es un sistema para contenerizar y agilizar el despliegue de distintos servicios.
 
 ## **Tabla de contenido**
 
@@ -11,7 +15,33 @@ Docker es un sistema para contenerizar y agilizar el despliegue de distintos ser
 - [Obtener imagen desde Dockerhub](#pull)
 
 
-## **Construcción de imagen** <a name="build"></a>
+## **Pruebas Unitarias** <a name="jestbuild"></a>
+Se utiliza la herramienta JEST para realizar las pruebas unitarias de la practica 3, con la cual se puede realizar las pruebas unitarias installando el paquete con la siguie
+
+```
+npm install --save-dev jest
+```
+## **Script**
+Se agregan  los datos de jest, en el apartado del script, 
+```
+{
+  "scripts": {
+    "test": "jest"
+  }
+}
+```
+Para luego al momento de utilizar el commando, funcione correctamente
+```
+npm run test
+```
+
+## **Jenkins**
+Jenkins es un servidor de automatización open source escrito en Java. Está basado en el proyecto Hudson y es, dependiendo de la visión, un fork del proyecto o simplemente un cambio de nombre.
+
+Jenkins ayuda en la automatización de parte del proceso de desarrollo de software mediante integración continua y facilita ciertos aspectos de la entrega continua. 
+
+
+## **Construcción de imagen** 
 
 Para construir la imagen se debe de ingresar el siguiente comando, asegurandose que ya se cuenta con Docker instalado.
 
