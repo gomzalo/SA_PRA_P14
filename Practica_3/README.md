@@ -41,6 +41,20 @@ Jenkins es un servidor de automatización open source escrito en Java. Está bas
 Jenkins ayuda en la automatización de parte del proceso de desarrollo de software mediante integración continua y facilita ciertos aspectos de la entrega continua. 
 
 
+## **Dashboard**
+!["Dashboard](/Practica_3/dashboard.jpg "Dashboard")
+
+## **Historial**
+!["Historial](/Practica_3/historial.jpg "Historial")
+
+## **Stage**
+
+!["Stage](/Practica_3/stage_deploy.jpg "Stage")
+
+## **Deploy**
+
+!["Deploy](/Practica_3/deploy.jpg "Deploy")
+
 ## **Construcción de imagen** 
 
 Para construir la imagen se debe de ingresar el siguiente comando, asegurandose que ya se cuenta con Docker instalado.
