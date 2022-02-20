@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const router = express.Router();
-const sum = require('./sum');
+const sum = require('./calc/sum.js');
 
 
 const path = __dirname + '/views/';
