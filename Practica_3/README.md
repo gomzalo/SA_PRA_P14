@@ -1,17 +1,76 @@
-# **Práctica 2 - Docker**
+# **Práctica 3 - Integracion con Jenkins**
 
-Docker es un sistema para contenerizar y agilizar el despliegue de distintos servicios.
+Se utilizo Jenkins para realizar la integracion continua, el cual es un servidor de automatización open source escrito en Java. Está basado en el proyecto Hudson y es, dependiendo de la visión, un fork del proyecto o simplemente un cambio de nombre.
+
+Jenkins ayuda en la automatización de parte del proceso de desarrollo de software mediante integración continua y facilita ciertos aspectos de la entrega continua.
+
+Tambien se utilizo Docker es un sistema para contenerizar y agilizar el despliegue de distintos servicios.
 
 ## **Tabla de contenido**
 
 - [Construcción de imagen](#build)
+- [Jenkins](#jenkins)
 - [Contenerización](#container)
 - [Publicar en Dockerhub](#dockerhub)
 - [Limpieza del sistema](#prune)
 - [Obtener imagen desde Dockerhub](#pull)
 
 
-## **Construcción de imagen** <a name="build"></a>
+## **Pruebas Unitarias** <a name="jestbuild"></a>
+Se utiliza la herramienta JEST para realizar las pruebas unitarias de la practica 3, con la cual se puede realizar las pruebas unitarias installando el paquete con la siguie
+
+```
+npm install --save-dev jest
+```
+## **Script**
+Se agregan  los datos de jest, en el apartado del script, 
+```
+{
+  "scripts": {
+    "test": "jest"
+  }
+}
+```
+Para luego al momento de utilizar el commando, funcione correctamente
+```
+npm run test
+```
+
+## **Jenkins** <a name="jenkins"></a>
+Jenkins es un servidor de automatización open source escrito en Java. Está basado en el proyecto Hudson y es, dependiendo de la visión, un fork del proyecto o simplemente un cambio de nombre.
+
+Jenkins ayuda en la automatización de parte del proceso de desarrollo de software mediante integración continua y facilita ciertos aspectos de la entrega continua. 
+
+## **Instalacion**
+Se puede instalar jenkins independientemente en que distribucion de linux, puedes instalar utilizando los siguientes  comandos:
+```
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+```
+## **Dashboard**
+Una vez instalado puedes observar un panel como en el siguiente donde podras utilizar las herramientas para iniciar con integracion continua, Utilizando Open Blue Ocean, para realizar las configuraciones, colocando como un minimo de 1 min, para que escanee si existiera algun cambio
+
+Se elige el origen la fuente de datos, utilizando el repositorio en este caso github, y si no existe ningun documento jenkins, se crea uno nuevo.
+!["Dashboard](/Practica_3/dashboard.jpg "Dashboard")
+
+## **Historial**
+En este apartado podemos observar el listado de ejecuciones al momento de levantar nuestro jenkins
+!["Historial](/Practica_3/historial.jpg "Historial")
+
+## **Stage**
+Aca podemos observar los 3 stage que se utilizaron para esta practica, donde podemos observar la consola, los resultados mientras se van ejecutando
+!["Stage](/Practica_3/stage_deploy.jpg "Stage")
+
+## **Deploy**
+
+!["Deploy](/Practica_3/deploy.jpg "Deploy")
+
+## **Construcción de imagen** 
 
 Para construir la imagen se debe de ingresar el siguiente comando, asegurandose que ya se cuenta con Docker instalado.
 
@@ -38,13 +97,13 @@ Este comando, nos deberia mostrar nuestra imagen ya construida, lista para su co
 Luego de tener la imagen lista, procedemos a contenerizar la imagen con el siguiente comando.
 
 ```
-docker run --name image-name -p <local_TCP_port>:<container_port> -d dockerhub_user/image-name
+docker run --name image-name -p 80:8080 -d dockerhub_user/image-name
 ```
 
 En nuestro caso es el siguiente comando:
 
 ```
-docker run --name pareja14 -p 50:5050 -d gomzalo/pareja14
+docker run --name pareja14 -p 80:8080 -d gomzalo/pareja14
 ```
 
 Para verificar que el contenedor fue creado y que esta corriendo, se corre el siguiente comando:

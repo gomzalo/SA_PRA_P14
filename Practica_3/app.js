@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
 const router = express.Router();
+const sum = require('./calc/sum.js');
+
 
 const path = __dirname + '/views/';
-const port = 8080;
+const port = 5050;
 
 router.use(function (req,res,next) {
     console.log('/' + req.method);
