@@ -5,7 +5,7 @@ const sum = require('./sum');
 
 
 const path = __dirname + '/views/';
-const port = 8080;
+const port = 5050;
 
 router.use(function (req,res,next) {
     console.log('/' + req.method);
@@ -20,5 +20,5 @@ app.use(express.static(path));
 app.use('/', router);
 
 app.listen(port, function () {
-    console.log('App listening on http://0.0.0.0:8080')
+    console.log('App listening on http://0.0.0.0:5050')
 })
