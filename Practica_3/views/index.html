@@ -6,11 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.css">
-    <link rel="icon"
-     href="assets/docker.png">
-     <script type = "text/javascript" src="/sum.js">
-     </script>
-
+    <link rel="icon" href="assets/docker.png">
 </head>
 
 <body>
@@ -33,8 +29,7 @@
             <table class='table table-hover'>
                 <tr class='table-primary'>
                     <th scope='row'>Nombre</th>
-                    <th>Carnet</th>
-                </tr>
+                    <th>Carnet</th></tr>
                 <tr class='table-secondary'>
                     <td>Gonzalo Antonio Garcia Solares</td>
                     <td>201318652</td>
@@ -70,38 +65,37 @@
                     </div>
                 </div>
                 <form>
-                    <h1>Entradas para Operaciones Unitarias</h1>
-                    <label for="name">Ingrese sus datos a Sumar:</label>
+                    <h4>Entradas para Operaciones Unitarias</h3>
+                    <label for="name">Ingrese los valores a Sumar:</label>
+                    Valor 1
                     <input id="txtNum1" type="text" />
+                    Valor 2
                     <input id="txtNum2" type="text" />
-                    <label for="name">=</label>
-                    <input id="txtNum3" type="text" />
+                    <!-- <label for="name">=</label> -->
+                    <!-- <input id="txtNum3" type="text" /> -->
                     <br>
-                    <input id="btn_op" type="button" value="Operar"  />
+                    <button id="btn_op" type='button' onclick="addOp()">Sumar</button>
                 </form>
                 
             </div>
         </div>
     </div>
 
-    
+    <!-- <script type = "module" src="../calc/calc.js"> </script> -->
     <script type="text/javascript">
-       var txtNum1Val = document.getElementById("txtNum1").value;
-       var txtNum2Val = document.getElementById("txtNum2").value;
-       var btn = document.getElementById("btn_op");
+        var val1 = document.getElementById("txtNum1").value;
+        var val2 = document.getElementById("txtNum2").value;
+        var btn = document.getElementById("btn_op");
+        
+        function addOp()
+        {
+            // alert('asssdsada');
+            alert(parseInt(document.getElementById("txtNum1").value) + parseInt(document.getElementById("txtNum2").value));
+        }   
 
-       
+        // btn.addEventListener("Click", addOp);
 
-       function addOp()
-       {
-           console.log("hola");
-           var result = sum(document.getElementById(txtNum1).value,document.getElementById(txtNum2).value);
-           document.getElementById("txtNum3").innerHTML = "Your Name is :" + result;
-       }   
-
-       btn.addEventListener("Click",addOp);
-
-   </script>
+    </script>
 
 </body>
 
