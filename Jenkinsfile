@@ -4,24 +4,24 @@ pipeline {
     stage('build') {
       steps {
         echo 'Build starting'
-        sh 'cd Practica_3'
-        sh 'npm install'
+        sh '''cd Practica_3
+npm install'''
       }
     }
 
     stage('test') {
       steps {
-        sh 'cd Practica_3'
-        sh 'npm run test'
+        sh '''cd Practica_3
+npm run test'''
       }
     }
 
     stage('deploy') {
       steps {
         sh '''cd Practica_3
-'''
-        sh 'docker build -t gomzalo/pareja14 .'
-        sh 'docker run --name pareja14 -p 50:5050 -d gomzalo/pareja14'
+docker rm gomzalo/pareja14 || (echo "Image gomzalo/pareja14 didn\'t exist so not removed."; exit 0)
+docker build -t gomzalo/pareja14 .
+docker run --name pareja14 -p 80:8080 -d gomzalo/pareja14'''
       }
     }
 
