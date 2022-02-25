@@ -19,11 +19,10 @@ npm run test'''
     stage('deploy') {
       steps {
         sh '''cd Practica_3
-docker rm gomzalo/pareja14 || (echo "Image gomzalo/pareja14 didn\\\'t exist so not removed."; exit 0)
-docker kill $(docker ps -q)
-docker rm $(docker ps -a -q)
-docker build -t gomzalo/pareja14 .
-docker run --name pareja14 -p 50:5050 -d gomzalo/pareja14'''
+docker build -t gomzalo/pareja14:latest .
+docker stop -t gomzalo/pareja14
+docker rm gomzalo/pareja14:latest || (echo "Image gomzalo/pareja14 didn\\\'t exist so not removed."; exit 0)
+docker run --name pareja14 -p 50:5050 -d gomzalo/pareja14:latest'''
         echo 'Corriendo en http://0.0.0.0:50/'
       }
     }
