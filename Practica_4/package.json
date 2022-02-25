@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "node app.js",
-    "coverage:dev": "jest --coverage --watchAll"
+    "coverage:dev": "jest --coverage"
   },
   "jest": {
     "collectCoverageFrom": [
