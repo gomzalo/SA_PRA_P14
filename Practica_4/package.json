@@ -1,16 +1,17 @@
 {
-  "name": "p3sag14",
-  "version": "1.0.0",
-  "description": "Practica 3 - Software Avanzado - Grupo 14",
+  "name": "p4sag14",
+  "version": "1.1.0",
+  "description": "Practica 4 - Software Avanzado - Pareja 14",
   "main": "app.js",
   "scripts": {
     "test": "jest",
     "start": "node app.js",
-    "coverage:dev": "jest --coverage --watchAll"
+    "coverage:dev": "jest --coverage"
   },
   "jest": {
     "collectCoverageFrom": [
       "**/*.{js,jsx}",
+      "app.js",
       "!coverage/**",
       "!node_modules/**",
       "!src/index.js",
@@ -36,6 +37,7 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
+    "@babel/highlight": "^7.16.10",
     "jest": "^27.5.1",
     "nodemon": "^2.0.15"
   }
