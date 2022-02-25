@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="17" lines-covered="2" line-rate="0.1176" branches-valid="0" branches-covered="0" branch-rate="1" timestamp="1645771589796" complexity="0" version="0.1">
+<coverage lines-valid="17" lines-covered="2" line-rate="0.1176" branches-valid="0" branches-covered="0" branch-rate="1" timestamp="1645775829699" complexity="0" version="0.1">
   <sources>
-    <source>C:\Users\Erick\Documents\GitHub\SA_PRA_P14\Practica_4</source>
+    <source>/data/G/Documents/GitHub/SA_PRA_P14/Practica_4</source>
   </sources>
   <packages>
     <package name="Practica_4" line-rate="0" branch-rate="1">
@@ -47,7 +47,7 @@
     </package>
     <package name="Practica_4.calc" line-rate="1" branch-rate="1">
       <classes>
-        <class name="sum.js" filename="calc\sum.js" line-rate="1" branch-rate="1">
+        <class name="sum.js" filename="calc/sum.js" line-rate="1" branch-rate="1">
           <methods>
             <method name="sum" hits="1" signature="()V">
               <lines>
