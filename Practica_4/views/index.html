@@ -64,7 +64,7 @@
             <div class="container">
                 <div class="row">
                     <div class="form-group">
-                        <h4>Entradas para Operaciones Unitarias</h3>
+                        <h4>Suma</h3>
                         <label for="name">Ingrese los valores a sumar:</label>
                         <br><br>
                         <input id="txtNum1" type="text" class="form-control" placeholder="Valor 1"/>
@@ -112,7 +112,6 @@
             
             function addOp()
             {
-                // alert('asssdsada');
                 var toasty = document.getElementById('toast_result');
                 document.getElementById('resultado').innerHTML = parseInt(document.getElementById("txtNum1").value) + parseInt(document.getElementById("txtNum2").value);
                 toasty.style.display = "block";
