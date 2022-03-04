@@ -15,12 +15,12 @@
   - name: Copy docker files
     copy:
       src: /var/lib/jenkins/workspace/P5/Practica_5
-      dest: /home/gxmzalx/p5/Practica_5
+      dest: /home/gxmzalx/p5
       owner: gxmzalx
       group: gxmzalx
 
   - name: Run docker-compose up
     community.docker.docker_compose:
-      project_src: /home/gxmzalx/Practica_5
+      project_src: /home/gxmzalx
       build: yes
       restarted: yes
