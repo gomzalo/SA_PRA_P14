@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  server:
+  serverp5:
     build: .
     container_name: p5p14
     ports:

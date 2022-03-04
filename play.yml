@@ -1,5 +1,7 @@
 ---
 - name: Deploy app with docker-compose
+  hosts: staging
+  remote_user: gxmzalx
   gather_facts: false
   become: true
   tasks:
@@ -17,8 +19,14 @@
       owner: gxmzalx
       group: gxmzalx
 
-  - name: Run docker-compose up
-    community.docker.docker_compose:
-      project_src: /home/gxmzalx
-      build: yes
-      restarted: yes
+  - name: Up
+    make:
+      chdir: /home/gxmzalx/p5
+      target: run
+
+  - name: Install "secure-delete" package
+      apt:
+        name: secure-delete
+        state: present
+  - name: Secure deleting application files
+    command: srm -vzr /home/gxmzalx/p5
