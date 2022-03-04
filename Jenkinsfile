@@ -31,7 +31,7 @@ pipeline {
     stage('deploy') {
       steps {
         echo 'DEPLOY STAGE'
-        ansiblePlaybook(playbook: 'play', installation: 'Ansible', inventory: 'hosts.yml', sudo: true, sudoUser: 'gxmzalx')
+        ansiblePlaybook(playbook: 'play', installation: 'Ansible', inventory: 'hosts.yml')
       }
     }
 
