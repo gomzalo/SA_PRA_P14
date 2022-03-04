@@ -1,10 +1,26 @@
 ---
-- name: Docker compose up
-  hosts: docker
+- name: Deploy app with docker-compose
+  hosts: staging
+  remote_user: gxmzalx
   gather_facts: false
+  become: true
   tasks:
+  - name: Create the app dir
+    file:
+      path: /home/gxmzalx/p5
+      state: directory
+      owner: gxmzalx
+      group: gxmzalx
+
+  - name: Copy docker files
+    copy:
+      src: /Practica_5
+      dest: /home/gxmzalx/p5/Practica_5
+      owner: gxmzalx
+      group: gxmzalx
+
   - name: Run docker-compose up
     community.docker.docker_compose:
-      project_src: Practica_5
+      project_src: /home/gxmzalx/Practica_5
       build: yes
       restarted: yes
