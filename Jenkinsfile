@@ -1,34 +1,28 @@
 pipeline {
   agent any
-  environment {
-		DOCKERHUB_CREDENTIALS=credentials('Docker-hub-token')
-	}
   stages {
     stage('build') {
       steps {
         echo 'BUILD STAGE'
-        sh '''cd Practica_3
-npm install'''
+        sh 'make -sC Practica_5 build'
       }
     }
 
-    stage('test') {
+    stage('push') {
       steps {
-        echo 'TEST STAGE'
-        sh '''cd Practica_3
-npm run test'''
+        echo 'PUSH STAGE'
+        sh '''cd Practica_5
+docker.withRegistry(\'https://registry.hub.docker.com\', \'Docker-hub-token\') {
+        bat \'docker push gomzalo/practica_5_serverp5:latest\'
+}'''
       }
     }
 
     stage('deploy') {
       steps {
-        echo 'DEPLOY STAGE'
-        sh '''cd Practica_3
-docker build -t practica3:latest .
-docker stop practica3
-docker rm practica3
-docker run --name practica3 -p 50:5050 -d practica3:latest'''
-        echo 'Corriendo en http://0.0.0.0:50/'
+        echo 'DESTROY STAGE'
+        sh 'make -sC Practica_5 destroy'
+        echo 'Corriendo en http://0.0.0.0:80/'
       }
     }
 
