@@ -1,5 +1,10 @@
 pipeline {
   agent any
+
+  environment {
+		DOCKERHUB_CREDENTIALS=credentials('Dockerhub-cred-token')
+	}
+
   stages {
     stage('build') {
       steps {
@@ -8,23 +13,30 @@ pipeline {
       }
     }
 
+    stage('login') {
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+
     stage('push') {
       steps {
         echo 'PUSH STAGE'
-        sh '''cd Practica_5
-docker.withRegistry(\'https://registry.hub.docker.com\', \'Docker-hub-token\') {
-        bat \'docker push gomzalo/practica_5_serverp5:latest\'
-}'''
+        sh 'make -sC Practica_5 push'
       }
     }
 
-    stage('deploy') {
+    stage('destroy') {
       steps {
         echo 'DESTROY STAGE'
         sh 'make -sC Practica_5 destroy'
-        echo 'Corriendo en http://0.0.0.0:80/'
       }
     }
-
   }
+
+  post {
+		always {
+			sh 'docker logout'
+		}
+	}
 }
