@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  server:
+    build: .
+    container_name: p5p14
+    ports:
+      - "5055:5050"
+    restart: on-failure
