@@ -1,0 +1,10 @@
+---
+- name: Docker compose up
+  hosts: docker
+  gather_facts: false
+  tasks:
+  - name: Run docker-compose up
+    community.docker.docker_compose:
+      project_src: Practica_5
+      build: yes
+      restarted: yes

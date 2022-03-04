@@ -1,0 +1,6 @@
+[docker]
+35.224.55.19
+
+[docker:vars]
+ansible_user: gxmzalx
+ansible_port: 22

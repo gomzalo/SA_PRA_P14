@@ -4,5 +4,5 @@ services:
     build: .
     container_name: p5p14
     ports:
-      - "5055:5050"
+      - "80:5050"
     restart: on-failure
