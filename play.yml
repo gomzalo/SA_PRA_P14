@@ -1,9 +1,6 @@
 ---
 - name: Deploy app with docker-compose
   hosts: staging
-  remote_user: gxmzalx
-  gather_facts: false
-  become: true
   tasks:
   - name: Create the app dir
     file:
