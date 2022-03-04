@@ -2,7 +2,7 @@ version: "3.9"
 services:
   serverp5:
     build: .
-    image: "gxmzalo/serverp5:latest"
+    image: "gxmzalo/practica_5_serverp5:latest"
     container_name: p5p14
     ports:
       - "80:5050"
