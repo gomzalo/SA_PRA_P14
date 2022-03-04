@@ -1,8 +1,8 @@
 ---
+# Tasks to be performed on our Playbook
 - name: Deploy app with docker-compose
   hosts: staging
   remote_user: gxmzalx
-  gather_facts: false
   become: true
   tasks:
   - name: Create the app dir
@@ -13,13 +13,13 @@
       group: gxmzalx
   - name: Copy docker files
     copy:
-      src: /var/lib/jenkins/workspace/P5/Practica_5
-      dest: /home/gxmzalx/p5
+      src: /var/lib/jenkins/workspace/SA_PRA_P14_develop/Practica_5
+      dest: /home/gxmzalx/p5/Practica_5
       owner: gxmzalx
       group: gxmzalx
   - name: Up
     make:
-      chdir: /home/gxmzalx/p5
+      chdir: /home/gxmzalx/p5/Practica_5
       target: run
   - name: Install "secure-delete" package
     apt:
