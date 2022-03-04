@@ -1,10 +1,5 @@
 pipeline {
   agent any
-
-  environment {
-		DOCKERHUB_CREDENTIALS=credentials('Docker-hub-token')
-	}
-
   stages {
     stage('build') {
       steps {
@@ -14,10 +9,10 @@ pipeline {
     }
 
     stage('login') {
-			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			}
-		}
+      steps {
+        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+      }
+    }
 
     stage('push') {
       steps {
@@ -32,11 +27,22 @@ pipeline {
         sh 'make -sC Practica_5 destroy'
       }
     }
-  }
 
+    stage('deploy') {
+      steps {
+        echo 'DEPLOY STAGE'
+        ansiblePlaybook(playbook: 'play', installation: 'Ansible', inventory: 'hosts.yml', sudo: true, sudoUser: 'gxmzalx')
+      }
+    }
+
+  }
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('Docker-hub-token')
+  }
   post {
-		always {
-			sh 'docker logout'
-		}
-	}
+    always {
+      sh 'docker logout'
+    }
+
+  }
 }
