@@ -14,7 +14,7 @@
   - name: Copy docker files
     copy:
       src: /var/lib/jenkins/workspace/SA_PRA_P14_develop/Practica_5
-      dest: /home/gxmzalx/p5/Practica_5
+      dest: /home/gxmzalx/p5
       owner: gxmzalx
       group: gxmzalx
   - name: Up
