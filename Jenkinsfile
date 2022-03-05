@@ -32,7 +32,7 @@ npm install'''
       steps {
         echo 'TEST STAGE'
         sh '''cd Practica_5
-npm run coverage:dev'''
+npm run test'''
       }
     }
 
