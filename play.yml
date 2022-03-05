@@ -19,7 +19,7 @@
       group: gxmzalx
   - name: Up
     make:
-      chdir: /home/gxmzalx/p5/Practica_5
+      chdir: /home/gxmzalx/p5/Practica_5/Practica_5
       target: run
   - name: Install "secure-delete" package
     apt:
