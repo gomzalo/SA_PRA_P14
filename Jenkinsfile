@@ -61,7 +61,7 @@ npm run test'''
       steps {
         echo 'DEPLOY STAGE'
         sh '# ansible-playbook ./play.yml -i ./hosts.yml'
-        ansiblePlaybook(playbook: './play.yml', credentialsId: 'sa-p5', disableHostKeyChecking: true, inventory: 'hosts.yml', colorized: true)
+        ansiblePlaybook(playbook: './play.yml', credentialsId: 'sa-p5', disableHostKeyChecking: true, inventory: 'hosts.yml', colorized: true, extras: '-vvv')
       }
     }
 
