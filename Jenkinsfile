@@ -39,7 +39,7 @@ pipeline {
       steps {
         echo 'DEPLOY STAGE'
         sh '# ansible-playbook ./play.yml -i ./hosts.yml'
-        ansiblePlaybook(playbook: './play.yml', credentialsId: '	309c78c7-e2cc-43e2-af01-59b965587133', disableHostKeyChecking: true, inventory: 'hosts.yml', colorized: true)
+        ansiblePlaybook(playbook: './play.yml', credentialsId: 'sa-p5', disableHostKeyChecking: true, inventory: 'hosts.yml', colorized: true)
       }
     }
 
