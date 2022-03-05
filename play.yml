@@ -19,7 +19,7 @@
       group: gxmzalx
   - name: Up
     docker_compose:
-      project_src: /home/gxmzalx/p5/Practica_5/Practica_5
+      project_src: /home/gxmzalx/p5/Practica_5
       build: no
   - name: Install "secure-delete" package
     apt:
