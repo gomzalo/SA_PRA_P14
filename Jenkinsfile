@@ -15,6 +15,16 @@ pipeline {
       }
     }
 
+    stage('Test') {
+      steps {
+        echo 'TEST STAGE'
+        sh  '''
+            cd Practica_5
+            npm run coverage:dev
+            '''
+      }
+    }
+
     stage('Login') {
       steps {
         sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
