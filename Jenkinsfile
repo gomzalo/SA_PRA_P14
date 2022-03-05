@@ -12,7 +12,7 @@ pipeline {
       parallel {
         stage('Build Docker') {
           steps {
-            echo 'BUILD STAGE'
+            echo 'BUILD DOCKER STAGE'
             sh 'make -sC Practica_5 build'
           }
         }
@@ -20,7 +20,8 @@ pipeline {
         stage('Build') {
           steps {
             echo 'BUILD STAGE'
-            sh 'npm install'
+            sh '''cd Practica_5
+npm install'''
           }
         }
 
@@ -30,15 +31,14 @@ pipeline {
     stage('Test') {
       steps {
         echo 'TEST STAGE'
-        sh '''
-            cd Practica_5
-            npm run coverage:dev
-            '''
+        sh '''cd Practica_5
+npm run coverage:dev'''
       }
     }
 
     stage('Login') {
       steps {
+        echo 'LOGIN STAGE'
         sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
       }
     }
