@@ -1,4 +1,4 @@
-# **Práctica 4 - Jenkins y SonarQube** <!-- omit in toc -->
+# **Práctica 5 - Jenkins y Ansible** <!-- omit in toc -->
 
 Se utilizo Jenkins para realizar la integración continua, el cual es un servidor de automatización open source escrito en Java. Está basado en el proyecto Hudson y es, dependiendo de la visión, un fork del proyecto o simplemente un cambio de nombre.
 
@@ -9,6 +9,9 @@ También se utilizo Docker-Compose, para manejar los contenedores de forma mas r
 ## **Tabla de contenido** <!-- omit in toc -->
 - [**Ansible**](#ansible)
 
+- [**Ansible**](#ansible)
+- [**Configuracion SSH Ansible**](#configuracion-ssh-ansible)
+- [**Sync credentials for Jenkins**](#sync-credentials-for-jenkins)
 - [**Pruebas Unitarias**](#pruebas-unitarias)
   - [**Script**](#script)
 - [**Jenkins**](#jenkins)

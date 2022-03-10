@@ -1,7 +1,7 @@
 {
-  "name": "p5sag14",
+  "name": "p6sag14",
   "version": "1.1.0",
-  "description": "Practica 5 - Software Avanzado - Pareja 14",
+  "description": "Practica 6 - Software Avanzado - Pareja 14",
   "main": "app.js",
   "scripts": {
     "test": "jest",
