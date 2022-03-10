@@ -13,14 +13,14 @@ pipeline {
         stage('Build Docker') {
           steps {
             echo 'BUILD DOCKER STAGE'
-            sh 'make -sC Practica_5 build'
+            sh 'make -sC Practica_6 build'
           }
         }
 
         stage('Build') {
           steps {
             echo 'BUILD STAGE'
-            sh '''cd Practica_5
+            sh '''cd Practica_6
 npm install'''
           }
         }
@@ -28,13 +28,13 @@ npm install'''
       }
     }
 
-    stage('Test') {
-      steps {
-        echo 'TEST STAGE'
-        sh '''cd Practica_5
-npm run test'''
-      }
-    }
+//     stage('Test') {
+//       steps {
+//         echo 'TEST STAGE'
+//         sh '''cd Practica_6
+// npm run test'''
+//       }
+//     }
 
     stage('Login') {
       steps {
@@ -46,22 +46,22 @@ npm run test'''
     stage('Push') {
       steps {
         echo 'PUSH STAGE'
-        sh 'make -sC Practica_5 push'
+        sh 'make -sC Practica_6 push'
       }
     }
 
     stage('Destroy') {
       steps {
         echo 'DESTROY STAGE'
-        sh 'make -sC Practica_5 destroy'
+        sh 'make -sC Practica_6 destroy'
       }
     }
 
     stage('Deploy') {
       steps {
         echo 'DEPLOY STAGE'
-        sh '# ansible-playbook ./play.yml -i ./hosts.yml'
-        ansiblePlaybook(playbook: './play.yml', credentialsId: 'sa-p5', disableHostKeyChecking: true, inventory: 'hosts.yml', colorized: true, extras: '-vvv')
+        // sh '# ansible-playbook ./play.yml -i ./hosts.yml'
+        // ansiblePlaybook(playbook: './play.yml', credentialsId: 'sa-p5', disableHostKeyChecking: true, inventory: 'hosts.yml', colorized: true, extras: '-vvv')
       }
     }
 
