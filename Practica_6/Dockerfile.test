@@ -1,7 +1,7 @@
 FROM maven:3.6.3-openjdk-8 
-COPY . /dist 
-RUN cd /dist && mvn clean install 
-WORKDIR /dist/ 
+COPY . .
+RUN mvn clean install 
+WORKDIR /
 CMD sleep 150 && mvn sonar:sonar \
 -Dsonar.host.url=http://35.232.226.83:9000 \
 -Dsonar.language=java -Dsonar.login=admin \ 
