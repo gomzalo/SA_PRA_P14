@@ -13,7 +13,7 @@ pipeline {
         stage('Build Docker') {
           steps {
             echo 'BUILD DOCKER STAGE'
-            sh 'make -sC Practica_6 build'
+            // sh 'make -sC Practica_6 build'
           }
         }
 
@@ -82,12 +82,12 @@ npm install'''
   environment {
     DOCKERHUB_CREDENTIALS = credentials('Docker-hub-token')
   }
-  post {
-    always {
-      sh 'docker logout'
-    }
+  // post {
+  //   always {
+  //     sh 'docker logout'
+  //   }
 
-  }
+  // }
   options {
     skipDefaultCheckout(true)
   }
