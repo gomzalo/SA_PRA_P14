@@ -32,13 +32,13 @@ npm install'''
       when {
         branch 'develop'
       }
-      steps {
-        echo 'TEST STAGE'
-				sh '''
-          cd Practica_6
-					docker-compose -f docker-compose-test.yml down
-					docker-compose -f docker-compose-test.yml build
-				'''
+      stage('SonarQube') {
+          steps {
+              def scannerHome = tool 'SonarQubeScanner'
+              withSonarQubeEnv('SonarQube') {
+                  sh "${scannerHome}/bin/sonar-scanner"
+              }
+          }
       }
     }
 
