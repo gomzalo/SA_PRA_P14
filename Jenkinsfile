@@ -30,7 +30,7 @@ npm install'''
     stage('Deploy') {
       steps {
         echo 'DEPLOY STAGE'
-        withSonarQubeEnv(installationName: 'SonarQubeScanner', credentialsId: 'SonarQube')
+        withSonarQubeEnv(installationName: 'SonarQubeScanner', credentialsId: 'SonarQube', envOnly: true)
       }
     }
 
