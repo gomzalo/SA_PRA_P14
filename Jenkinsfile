@@ -8,7 +8,7 @@ pipeline {
       }
     }
 
-    stage('Build Docker') {
+    stage('Build') {
       parallel {
         stage('Build Docker') {
           steps {
@@ -17,7 +17,7 @@ pipeline {
           }
         }
 
-        stage('Build') {
+        stage('Build NPM') {
           steps {
             echo 'BUILD STAGE'
             sh '''cd Practica_6
@@ -49,26 +49,26 @@ npm install'''
 //       }
 //     }
 
-    stage('Login') {
-      steps {
-        echo 'LOGIN STAGE'
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-      }
-    }
+    // stage('Login') {
+    //   steps {
+    //     echo 'LOGIN STAGE'
+    //     sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+    //   }
+    // }
 
-    stage('Push') {
-      steps {
-        echo 'PUSH STAGE'
-        sh 'make -sC Practica_6 push'
-      }
-    }
+    // stage('Push') {
+    //   steps {
+    //     echo 'PUSH STAGE'
+    //     sh 'make -sC Practica_6 push'
+    //   }
+    // }
 
-    stage('Destroy') {
-      steps {
-        echo 'DESTROY STAGE'
-        sh 'make -sC Practica_6 destroy'
-      }
-    }
+    // stage('Destroy') {
+    //   steps {
+    //     echo 'DESTROY STAGE'
+    //     sh 'make -sC Practica_6 destroy'
+    //   }
+    // }
 
     stage('Deploy') {
       steps {
