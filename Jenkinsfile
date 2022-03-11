@@ -28,17 +28,14 @@ npm install'''
       }
     }
 
-    stage('Test') {
-      when {
-        branch 'develop'
-      }
-      steps {
-          def scannerHome = tool 'SonarQubeScanner'
-          withSonarQubeEnv('SonarQube') {
-              sh "${scannerHome}/bin/sonar-scanner"
+        stage('Test') {
+          steps {
+            def scannerHome = tool 'SonarQubeScanner'
+            withSonarQubeEnv('SonarQube') {
+                sh "${scannerHome}/bin/sonar-scanner"
+            }
           }
-      }
-    }
+        }
 
 //     stage('Test') {
 //       steps {
