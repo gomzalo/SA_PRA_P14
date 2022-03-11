@@ -35,6 +35,7 @@ npm install'''
       steps {
         echo 'TEST STAGE'
 				sh '''
+          cd Practica_6
 					docker-compose -f docker-compose-test.yml down
 					docker-compose -f docker-compose-test.yml build
 				'''
