@@ -28,6 +28,19 @@ npm install'''
       }
     }
 
+    stage('Test') {
+      when {
+        branch 'develop'
+      }
+      steps {
+        echo 'TEST STAGE'
+				sh '''
+					docker-compose -f docker-compose-test.yml down
+					docker-compose -f docker-compose-test.yml build
+				'''
+      }
+    }
+
 //     stage('Test') {
 //       steps {
 //         echo 'TEST STAGE'

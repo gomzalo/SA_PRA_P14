@@ -1,0 +1,16 @@
+version: '2.2'
+
+services:
+
+  sonar-server: 
+    image: sonarqube:8.9.1-community 
+    ports: 
+      - 9000:9000 
+
+  sonar-scanner:
+    image: maven:3.6.3-openjdk-8  
+    build: 
+    context: .
+    dockerfile: Dockerfile.test
+    depends_on: 
+      - sonar-server
