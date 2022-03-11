@@ -32,12 +32,10 @@ npm install'''
       when {
         branch 'develop'
       }
-      stage('SonarQube') {
-          steps {
-              def scannerHome = tool 'SonarQubeScanner'
-              withSonarQubeEnv('SonarQube') {
-                  sh "${scannerHome}/bin/sonar-scanner"
-              }
+      steps {
+          def scannerHome = tool 'SonarQubeScanner'
+          withSonarQubeEnv('SonarQube') {
+              sh "${scannerHome}/bin/sonar-scanner"
           }
       }
     }
