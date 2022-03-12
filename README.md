@@ -21,3 +21,4 @@
 - [Práctica 3 - CI con Jenkins](/Practica_3/README.md)
 - [Práctica 4 - Jenkins y SonarQube](/Practica_4/README.md)
 - [Práctica 5 - Jenkins y Ansible](/Practica_5/README.md)
+- [Práctica 6 - Jenkins y Puppet](/Practica_6/README.md)

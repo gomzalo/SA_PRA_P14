@@ -1,0 +1,9 @@
+version: "2.2"
+services:
+  test:
+    build: .
+    image: "gomzalo/practica_6_test:latest"
+    container_name: p6p14_test
+    ports:
+      - "8081:5050"
+    restart: on-failure
