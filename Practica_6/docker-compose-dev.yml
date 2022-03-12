@@ -7,11 +7,3 @@ services:
     ports:
       - "8081:5050"
     restart: on-failure
-
-  production:
-    build: .
-    image: "gomzalo/practica_6_production:latest"
-    container_name: p6p14_prod
-    ports:
-      - "8082:5050"
-    restart: on-failure
