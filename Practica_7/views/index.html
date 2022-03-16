@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- HEAD -->
+    <head>
+        <title>P6_SA_G14 </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.css">
+        <link rel="icon" href="assets/docker.png">
+    </head>
+    <!-- BODY -->
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-static-top navbar-expand-md">
+            <div class="container-fluid">
+                <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">  Toggle navigation
+                </button> <a class="navbar-brand" href="#">Practica 6 - Jenkins y Puppet</a>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-link active"><a href="/" class="nav-link">Inicio</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Toast -->
+        <div class="float-end">
+            <div class="toast hide" style="display: none;" id="toast_result" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Resultado</strong>
+                    <small>Hace 1 s</small>
+                    <button type="button" class="btn-close ms-2 mb-1" data-bs-dismiss="toast" onclick="closeToast()" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    <label class="form-label" id="resultado">Resultado</label>
+                </div>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Software Avanzado "B"</h1>
+                <h2>Pareja # 14</h2>
+                <h3>VIDEO</h3>
+                <table class='table table-hover'>
+                    <tr class='table-primary'>
+                        <th scope='row'>Nombre</th>
+                        <th>Carnet</th></tr>
+                    <tr class='table-secondary'>
+                        <td>Gonzalo Antonio Garcia Solares</td>
+                        <td>201318652</td>
+                    </tr>
+                    <tr class='table-secondary'>
+                        <td>Erick Benjamin Lopez Xajil</td>
+                        <td>201504530</td>
+                    </tr>
+                </table>
+                <br>
+            </div>
+        </div>
+        <!-- Suma -->
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row">
+                    <div class="form-group">
+                        <h4>Suma</h3>
+                        <label for="name">Ingrese los valores a sumar:</label>
+                        <br><br>
+                        <input id="txtNum1" type="text" class="form-control" placeholder="Valor 1"/>
+                        <input id="txtNum2" type="text" class="form-control" placeholder="Valor 2"/>
+                        <br>
+                        <button id="btn_op" type='button' class="btn btn-info" onclick="addOp()">Sumar</button>
+                        <br><br>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <!-- FOOTER -->
+        <footer>
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="row">
+                        <div class="card border-danger mb-3"  style="max-width: 20rem;">
+                            <div class="card-header">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <img src="assets/usac.png">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border-danger mb-3"  style="max-width: 50rem;">
+                            <div class="card-header">
+                                <div class="card-body">
+                                    <h3 class="card-title">Universidad de San Carlos de Guatemala</h3>
+                                    <p class="card-text">Escuela de Ciencias y Sistemas</p>
+                                    <p class="card-text">Facultad de Ingeniería</p>
+                                    <p class="card-text">Primer semestre de 2022</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- SCRIPTS -->
+        <script type="text/javascript">
+            var val1 = document.getElementById("txtNum1").value;
+            var val2 = document.getElementById("txtNum2").value;
+            var btn = document.getElementById("btn_op");
+            
+            function addOp()
+            {
+                var toasty = document.getElementById('toast_result');
+                document.getElementById('resultado').innerHTML = parseInt(document.getElementById("txtNum1").value) + parseInt(document.getElementById("txtNum2").value);
+                toasty.style.display = "block";
+                toasty.className = "toast show";
+                setTimeout(function()
+                {
+                    toasty.className = toasty.className.replace("toast show", "");
+                    toasty.style.display = "none";
+                },
+                3000);
+                // alert(parseInt(document.getElementById("txtNum1").value) + parseInt(document.getElementById("txtNum2").value));
+            }
+
+            function closeToast()
+            {
+                document.getElementById('toast_result').style.display = "none";
+            }
+            // btn.addEventListener("Click", addOp);
+        </script>
+    </body>
+</html>
