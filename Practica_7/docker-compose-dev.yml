@@ -2,8 +2,8 @@ version: "2.2"
 services:
   test:
     build: .
-    image: "gomzalo/practica_6_test:latest"
-    container_name: p6p14_test
+    image: "gomzalo/sap7:latest"
+    container_name: sap7p14
     ports:
       - "8081:5050"
     restart: on-failure
