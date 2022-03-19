@@ -1,4 +1,4 @@
-# **Práctica 6 - Jenkins y Puppet** <!-- omit in toc -->
+# **Práctica 7 - Jenkins y Terraform** <!-- omit in toc -->
 
 Se utilizo Jenkins para realizar la integración continua, el cual es un servidor de automatización open source escrito en Java. Está basado en el proyecto Hudson y es, dependiendo de la visión, un fork del proyecto o simplemente un cambio de nombre.
 
