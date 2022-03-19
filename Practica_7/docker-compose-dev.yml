@@ -5,5 +5,5 @@ services:
     image: "gomzalo/sap7:latest"
     container_name: sap7p14
     ports:
-      - "8081:5050"
+      - "8081:8080"
     restart: on-failure
