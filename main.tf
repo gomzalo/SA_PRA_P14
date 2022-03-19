@@ -8,7 +8,7 @@ provider "google" {
 module "gce-worker-container" {
     source = "./Practica_7"
 
-    image = "gomzalo/practica_6_test"
+    image = "gomzalo/sap7"
     instance_name = "p7p14"
     network_name = "default"
 }
