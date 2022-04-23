@@ -1,0 +1,14 @@
+version: "2.2"
+services:
+  client:
+    build: ./client
+    container_name: client_p8
+    ports:
+      - "8081:8081"
+    restart: on-failure
+  backend:
+    build: ./backend
+    container_name: backend_p8
+    ports:
+      - "3000:3000"
+    restart: on-failure

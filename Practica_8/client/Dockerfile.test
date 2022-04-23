@@ -1,0 +1,12 @@
+FROM maven:3.6.3-openjdk-8 
+COPY . .
+RUN mvn clean install 
+WORKDIR /
+CMD sleep 150 && mvn sonar:sonar \
+-Dsonar.host.url=http://35.232.226.83:9000 \
+-Dsonar.language=java -Dsonar.login=admin \ 
+-Dsonar.password=1234 -Dsonar.projectKey=p14 \ 
+-Dsonar.projectVersion=p14 -Dsonar.projectBaseDir=/var/lib/jenkins/workspace/p14p6/Practica_6/ \ 
+-Dsonar.sources=app.js,calc \ 
+-Dsonar.exclusions=coverage/**,node_modules/**,img/**,test/**,views/** \ 
+-Dsonar.javascript.lcov.reportPaths=coverage/lcov.info

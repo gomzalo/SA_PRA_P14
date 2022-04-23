@@ -1,0 +1,17 @@
+version: "2.2"
+services:
+  production:
+    client:
+    build: ./client
+    image: gomzalo/client_p8
+    container_name: client_p8
+    ports:
+      - "8081:8080"
+    restart: on-failure
+  backend:
+    build: ./backend
+    image: client_p8
+    container_name: backend_p8
+    ports:
+      - "3000:3000"
+    restart: on-failure
